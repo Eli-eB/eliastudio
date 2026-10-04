@@ -183,6 +183,11 @@ section[id]{scroll-margin-top:84px}
 <div style="background: #FFFFFF; border: 1px solid #E3E5EE; border-radius: 28px; padding: clamp(24px, 3.5vw, 44px)">
 <div data-form-wrap>
 <form style="display: flex; flex-direction: column; gap: 20px">
+<input type="hidden" name="_subject" value="Nuevo diagnóstico · Colegios">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="sector" value="Colegios">
+<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0">
+
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <label for="col-nombre" style="font-weight: 600; font-size: 15px">Nombre y apellidos</label>
@@ -234,9 +239,10 @@ section[id]{scroll-margin-top:84px}
 <option value="no-sabemos">No lo sabemos</option>
 </select>
 </div>
-<label style="display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #3D4050; cursor: pointer"><input type="checkbox" name="privacidad" required="required" style="width: 18px; height: 18px; margin: 3px 0 0; flex-shrink: 0; accent-color: #2F3BFF"><span>He leído y acepto la <a href="#">política de privacidad</a>.</span></label>
+<label style="display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #3D4050; cursor: pointer"><input type="checkbox" name="privacidad" required="required" style="width: 18px; height: 18px; margin: 3px 0 0; flex-shrink: 0; accent-color: #2F3BFF"><span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
 <button type="submit" style="min-height: 56px; border: 0; border-radius: 999px; background: #2F3BFF; color: #FFFFFF; font: inherit; font-weight: 600; font-size: 17px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px">Pedir mi diagnóstico gratuito <svg class="i" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
 <p style="margin: -4px 0 0; font-size: 14px; color: #5A5E70; text-align: center">Solo usaremos tus datos para enviarte el diagnóstico.</p>
+<p data-error hidden role="alert" style="margin: 0; padding: 14px 16px; border-radius: 12px; background: #FDECEC; color: #8A1C1C; font-size: 15px">No se ha podido enviar. Vuelve a intentarlo o escríbenos a hola@eliastudio.es.</p>
 </form>
 </div>
 <div data-gracias hidden>
@@ -267,22 +273,46 @@ section[id]{scroll-margin-top:84px}
 </div>
 <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #2E3044; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; color: #A9ACBB; font-size: 14px">
 <span>© 2026 ELIA Studio</span>
-<span style="display: flex; flex-wrap: wrap; gap: 20px"><a class="fl" href="#">Aviso legal</a><a class="fl" href="#">Privacidad</a><a class="fl" href="#">Cookies</a></span>
+<span style="display: flex; flex-wrap: wrap; gap: 20px"><a class="fl" href="aviso-legal.html">Aviso legal</a><a class="fl" href="privacidad.html">Privacidad</a><a class="fl" href="cookies.html">Cookies</a></span>
 </div>
 </div>
 </footer>
 
 </div>
 <script>
-// Formulario de diagnóstico. Ahora solo muestra el mensaje de "Recibido":
-// falta conectarlo a una herramienta que reciba los datos (Formspree, Brevo, tu CRM...).
+// Formulario de diagnóstico: envía los datos a hola@eliastudio.es a través de FormSubmit.
+var DESTINO = 'https://formsubmit.co/ajax/hola@eliastudio.es';
 document.querySelectorAll('form').forEach(function (form) {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var wrap = form.closest('[data-form-wrap]');
-    var gracias = document.querySelector('[data-gracias]');
-    if (wrap) wrap.hidden = true;
-    if (gracias) { gracias.hidden = false; gracias.scrollIntoView({ block: 'center' }); }
+    if (form.elements._honey && form.elements._honey.value) return;
+    var boton = form.querySelector('button[type="submit"]');
+    var error = form.querySelector('[data-error]');
+    var textoBoton = boton.innerHTML;
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+    if (error) error.hidden = true;
+    var datos = {};
+    new FormData(form).forEach(function (valor, clave) {
+      if (clave === 'privacidad' || clave === '_honey') return;
+      datos[clave] = datos[clave] ? datos[clave] + ', ' + valor : valor;
+    });
+    fetch(DESTINO, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(datos)
+    }).then(function (r) {
+      if (!r.ok) throw new Error('envio');
+      var wrap = form.closest('[data-form-wrap]');
+      var gracias = document.querySelector('[data-gracias]');
+      if (wrap) wrap.hidden = true;
+      if (gracias) { gracias.hidden = false; gracias.scrollIntoView({ block: 'center' }); }
+    }).catch(function () {
+      if (error) error.hidden = false;
+    }).finally(function () {
+      boton.disabled = false;
+      boton.innerHTML = textoBoton;
+    });
   });
 });
 document.querySelectorAll('[data-volver]').forEach(function (btn) {
