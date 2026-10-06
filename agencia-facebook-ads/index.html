@@ -541,8 +541,8 @@
   var error = document.getElementById('form-error');
   var button = form.querySelector('button[type="submit"]');
   // 1) Registro de leads (Google Apps Script): guarda el lead, responde al cliente y te avisa.
-  //    Pega aquí la URL de tu aplicación web (termina en /exec). Vacío = solo FormSubmit.
-  var REGISTRO_LEADS = '';
+  //    Aplicación web «Registro leads ELIA» (Apps Script de la hoja «Leads ELIA Studio»).
+  var REGISTRO_LEADS = 'https://script.google.com/macros/s/AKfycbzehlOWPvF3a3sDM7BdFZur5ZL8QssH8p-QzU06kTDgDHtvXhZTkW0RAOBVOW_bjlX5aQ/exec';
   // 2) Respaldo: FormSubmit te manda el lead por email si el registro falla.
   var RESPALDO = 'https://formsubmit.co/ajax/hola@eliastudio.es';
   var textoBoton = button.innerHTML;
