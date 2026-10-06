@@ -129,6 +129,18 @@ form .btn{min-height:54px;font-size:17px}
 .gracias h3{font-weight:700;font-size:30px}
 .gracias p{margin:0;color:var(--suave);font-size:18px}
 
+/* Servicios */
+.banda{background:var(--noche-2);border-top:1px solid var(--borde);border-bottom:1px solid var(--borde)}
+.servicios{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-top:48px}
+.serv{padding:26px;border-radius:18px;border:1px solid var(--borde)}
+.serv .k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--violeta)}
+.serv h3{margin-top:10px;font-weight:700;font-size:21px}
+.serv p{margin:6px 0 0;color:var(--suave);font-size:16px}
+.serv.base{background:var(--azul);border-color:var(--azul)}
+.serv.base .k{color:#E6E8FF}
+.serv.base p{color:#E6E8FF}
+.nota-serv{margin:28px 0 0;color:var(--tenue);font-size:15px;max-width:760px}
+
 /* Pie */
 .pie{border-top:1px solid var(--borde);padding:56px 0 32px}
 .pie .arriba{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
@@ -149,6 +161,7 @@ form .btn{min-height:54px;font-size:17px}
 <nav class="nav" aria-label="Principal">
 <a href="#sistema">Sistema</a>
 <a href="#proceso">Proceso</a>
+<a href="#servicios">Servicios</a>
 <a href="#contacto">Contacto</a>
 </nav>
 <a class="btn btn-linea" href="#contacto">Pide tu diagnóstico</a>
@@ -257,7 +270,28 @@ form .btn{min-height:54px;font-size:17px}
 </div>
 </section>
 
-<section class="sec" id="contacto" style="padding-top:0">
+<section class="sec banda" id="servicios">
+<div class="wrap">
+<div class="dos">
+<div>
+<span class="ceja">Más allá del seguimiento</span>
+<h2>Y si hace falta, el resto también.</h2>
+</div>
+<p>Puedes contratar solo una pieza. Si en el diagnóstico veo que falta otra, te la propongo y la coordino con especialistas de confianza: un solo punto de contacto y un presupuesto cerrado antes de empezar.</p>
+</div>
+<div class="servicios">
+<article class="serv base"><span class="k">Relación</span><h3>Respuesta, citas y seguimiento</h3><p>El sistema que contesta al momento, agenda y no deja a nadie sin respuesta.</p></article>
+<article class="serv"><span class="k">Dirección</span><h3>Estrategia y marca</h3><p>Posicionamiento, propuesta de valor, identidad y mensajes, para que todo responda a un plan.</p></article>
+<article class="serv"><span class="k">Presencia</span><h3>Web y SEO local</h3><p>Webs y páginas de campaña que se entienden, y presencia local en Google.</p></article>
+<article class="serv"><span class="k">Contenido</span><h3>Contenido y redes</h3><p>Plan editorial, diseño de piezas, vídeo y gestión de redes cuando aportan algo al negocio.</p></article>
+<article class="serv"><span class="k">Alcance</span><h3>Publicidad digital</h3><p>Campañas en Google y redes sociales, con sus páginas de destino. La inversión en anuncios va aparte.</p></article>
+<article class="serv"><span class="k">Mejora</span><h3>Analítica e informes</h3><p>Medición clara para decidir qué mantener, qué ajustar y qué dejar de hacer.</p></article>
+</div>
+<p class="nota-serv">Cada proyecto se presupuesta por alcance, con plazos y entregables acordados antes de empezar.</p>
+</div>
+</section>
+
+<section class="sec" id="contacto">
 <div class="wrap contacto">
 <div class="intro">
 <span class="ceja">Contacto</span>
