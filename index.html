@@ -314,6 +314,8 @@ form .btn{min-height:54px;font-size:17px}
 <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
 <label class="campo">Nombre<input name="nombre" type="text" autocomplete="name" required placeholder="Cómo quieres que te llame"></label>
 <label class="campo">Correo electrónico<input name="email" type="email" autocomplete="email" required placeholder="tu@email.com"></label>
+<label class="campo">Móvil (WhatsApp)<input name="telefono" type="tel" autocomplete="tel" required placeholder="600 000 000"></label>
+<label class="campo">Web de tu negocio<input name="web" type="text" autocomplete="url" placeholder="www.tunegocio.com"></label>
 <label class="campo">Qué necesitas ordenar
 <select name="necesidad" required>
 <option value="">Elige una opción</option>
@@ -323,7 +325,7 @@ form .btn{min-height:54px;font-size:17px}
 <option>Todo el recorrido</option>
 <option>Aún no lo sé</option>
 </select></label>
-<label class="campo">Mensaje<textarea name="mensaje" placeholder="Cuéntame brevemente cómo gestionas ahora las consultas, las citas o el seguimiento."></textarea></label>
+<label class="campo">¿Qué debería saber para preparar tu diagnóstico?<textarea name="mensaje" placeholder="Cuéntame brevemente cómo gestionas ahora las consultas, las citas o el seguimiento."></textarea></label>
 <label class="priv"><input type="checkbox" name="privacidad" required><span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
 <button type="submit" class="btn btn-azul">Enviar solicitud</button>
 <p class="aviso">Solo usaré tus datos para revisar tu consulta y responderte.</p>
@@ -381,6 +383,8 @@ document.querySelectorAll('form').forEach(function (form) {
       body: JSON.stringify(datos)
     }).then(function (r) {
       if (!r.ok) throw new Error('envio');
+      window.location.href = 'gracias.html';
+      return;
       document.querySelector('[data-form-wrap]').hidden = true;
       var gracias = document.querySelector('[data-gracias]');
       gracias.hidden = false;

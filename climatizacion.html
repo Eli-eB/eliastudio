@@ -234,6 +234,10 @@ section[id]{scroll-margin-top:84px}
 <option value="mas-60">Más de 60</option>
 </select>
 </div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="cli-mensaje" style="font-weight: 600; font-size: 15px">¿Qué debería saber para preparar tu diagnóstico? <span style="font-weight: 400; color: #5A5E70">(opcional)</span></label>
+<textarea id="cli-mensaje" name="mensaje" rows="4" placeholder="Por ejemplo: qué tipo de trabajos hacéis más, cómo os piden presupuesto o qué os gustaría mejorar." style="width: 100%; min-height: 50px; padding: 12px 14px; border: 1.5px solid #8A8EA0; border-radius: 12px; font: inherit; font-size: 16px; color: #0E0F1A; background: #FFFFFF; min-height: 110px; resize: vertical"></textarea>
+</div>
 <label style="display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #3D4050; cursor: pointer"><input type="checkbox" name="privacidad" required="required" style="width: 18px; height: 18px; margin: 3px 0 0; flex-shrink: 0; accent-color: #2F3BFF"><span>He leído y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
 <button type="submit" style="min-height: 56px; border: 0; border-radius: 999px; background: #2F3BFF; color: #FFFFFF; font: inherit; font-weight: 600; font-size: 17px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px">Pedir mi diagnóstico gratuito <svg class="i" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
 <p style="margin: -4px 0 0; font-size: 14px; color: #5A5E70; text-align: center">Solo usaremos tus datos para enviarte el diagnóstico.</p>
@@ -298,6 +302,8 @@ document.querySelectorAll('form').forEach(function (form) {
       body: JSON.stringify(datos)
     }).then(function (r) {
       if (!r.ok) throw new Error('envio');
+      window.location.href = 'gracias.html';
+      return;
       var wrap = form.closest('[data-form-wrap]');
       var gracias = document.querySelector('[data-gracias]');
       if (wrap) wrap.hidden = true;
