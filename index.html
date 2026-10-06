@@ -236,6 +236,7 @@
   .brand img.brand-logo { height: 24px; }
   .audience-row { grid-template-columns: 1fr; gap: 4px; }
 }
+.video-sec{background:#0D1122}.video-frame{margin-top:44px;border-radius:18px;overflow:hidden;border:1px solid #31384F;box-shadow:0 30px 60px rgba(0,0,0,.35);aspect-ratio:16/9;background:#000}.video-frame video{display:block;width:100%;height:100%;object-fit:cover}
 </style>
 </head>
 <body>
@@ -293,6 +294,21 @@
         </div>
         <figcaption><ol class="flow-tags"><li>Anuncio</li><li>Mensaje</li><li>Cita</li></ol><small>Ejemplo ilustrativo</small></figcaption>
       </figure>
+    </div>
+  </section>
+
+  <section class="section video-sec" id="video" aria-labelledby="video-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">En 30 segundos</span><h2 id="video-title">Así trabajamos tus anuncios.</h2></div>
+        <p>A quién hablarle, qué decirle y cuánto invertir: lo vemos contigo antes de lanzar nada. Y cada mes medimos y mejoramos.</p>
+      </div>
+      <div class="video-frame">
+        <video controls playsinline preload="metadata" poster="assets/elia-video-poster.jpg">
+          <source src="assets/elia-video-30s.mp4" type="video/mp4">
+          Tu navegador no puede reproducir el vídeo.
+        </video>
+      </div>
     </div>
   </section>
 
