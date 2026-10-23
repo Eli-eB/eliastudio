@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta name="robots" content="index,follow">
 <title>ELIA Studio · Agencia de marketing digital en Barcelona</title>
 <meta name="description" content="Agencia de marketing digital en Sant Just Desvern (Barcelona). Anuncios en Facebook e Instagram y seguimiento de cada contacto. Pide tu estrategia gratuita.">
@@ -20,9 +22,6 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,6 +47,11 @@
 }
 </script>
 <style>
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:500 800;font-display:swap;src:url(/assets/fonts/bricolage-grotesque-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:500 800;font-display:swap;src:url(/assets/fonts/bricolage-grotesque-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fonts/instrument-sans-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Instrument Sans';font-style:normal;font-weight:400 700;font-display:swap;src:url(/assets/fonts/instrument-sans-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
 :root{--night:#0E1020;--night2:#15192C;--card:#1A2034;--line:#31384F;--white:#F9FAFF;--muted:#BCC3D6;--lilac:#FF6B4A;--blue:#B83A18;--mist:#F4F5FA;--ink:#15192B;--ink2:#525B6D;--edge:#DDE1EB;--gutter:clamp(20px,4vw,56px);--ease:cubic-bezier(.23,1,.32,1)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--white);font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif}a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--lilac);outline-offset:3px}section[id]{scroll-margin-top:86px}[hidden]{display:none!important}.wrap{width:min(100%,1320px);padding-inline:var(--gutter);margin-inline:auto}.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--lilac);font-size:12px;letter-spacing:.16em;font-weight:700;text-transform:uppercase}.eyebrow:before{content:'';display:block;width:18px;height:1px;background:currentColor}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 24px;border-radius:8px;border:1px solid transparent;text-decoration:none;font:600 15px/1.3 'Instrument Sans',sans-serif;cursor:pointer;transition:transform .16s var(--ease),background .18s var(--ease),border-color .18s var(--ease)}.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.97)}.btn-primary{background:var(--lilac);color:#101429}.btn-primary:hover{background:#FF6B4A}.btn-outline{border-color:#4B536D;color:#fff;background:rgba(255,255,255,.02)}.btn-outline:hover{border-color:var(--lilac)}.btn-dark{background:var(--night);color:white}.btn-dark:hover{background:#292E49}.icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 /* Header */
@@ -304,7 +308,7 @@
   .about-badge { right: -12px; width: 70px; height: 70px; }
 }
 </style>
-  <link rel="preload" as="image" href="/assets/eli-trabajando.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/eli-trabajando.webp" type="image/webp" media="(min-width: 901px)">
 </head>
 <body class="home">
 <header class="topbar">
@@ -440,7 +444,7 @@
         <p>A quién hablarle, qué decirle y cuánto invertir: lo vemos contigo antes de lanzar nada. Y cada mes medimos y mejoramos.</p>
       </div>
       <div class="video-frame">
-        <video controls playsinline preload="metadata" poster="/assets/elia-video-poster.jpg">
+        <video controls playsinline preload="none" poster="/assets/elia-video-poster.jpg">
           <source src="/assets/elia-video-30s.mp4" type="video/mp4">
           Tu navegador no puede reproducir el vídeo.
         </video>
@@ -558,7 +562,7 @@
     </div>
     <div class="footer-bottom">
       <nav aria-label="Avisos legales"><a href="/aviso-legal.html">Aviso legal</a><a href="/privacidad.html">Privacidad</a><a href="/cookies.html">Cookies</a></nav>
-      <span>© 2026 ELIA Studio · <a href="tel:+34637782145">+34 637 78 21 45</a> · <a href="mailto:hola@eliastudio.es">hola@eliastudio.es</a></span>
+      <span>© 2026 ELIA Studio · <a href="tel:+34637782145">+34 637 78 21 45</a> · <a href="mailto:hola@eliastudio.es">hola@eliastudio.es</a> · <a href="https://www.instagram.com/eliastudio.es/" target="_blank" rel="me noopener">Instagram</a></span>
     </div>
   </div>
 </footer>
